@@ -44,7 +44,7 @@ This endpoint accepts a markdown file and returns the converted HTML content.
 ### Example Request using curl
 
 ```sh
-curl -X POST http://localhost:30221/convert -F "markdownFile=@example.md"
+curl -X POST https://markdown-converter.aldeep.hackclub.app/convert -F "markdownFile=@example.md"
 ```
 
 ### Example Request using JavaScript fetch
