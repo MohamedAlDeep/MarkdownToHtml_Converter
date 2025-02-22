@@ -1,4 +1,4 @@
-# Markdown To Html Converter
+# Markdown To Html Convert
 
 This is an API that converts a markdown file into HTML.
 
@@ -44,7 +44,7 @@ This endpoint accepts a markdown file and returns the converted HTML content.
 ### Example Request using curl
 
 ```sh
-curl -X POST http://localhost:30221/convert -F "markdownFile=@example.md"
+curl -X POST https://markdown-converter.aldeep.hackclub.app/convert -F "markdownFile=@example.md"
 ```
 
 ### Example Request using JavaScript fetch
@@ -111,3 +111,8 @@ curl -X POST http://localhost:30221/convert -F "markdownFile=@example.md"
 7. Choose a markdown file to upload.
 8. Click `Send`.
 
+
+Submittion Secret Code
+```
+RASPBERRY_PI_2025
+```
