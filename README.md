@@ -111,8 +111,3 @@ curl -X POST https://markdown-converter.aldeep.hackclub.app/convert -F "markdown
 7. Choose a markdown file to upload.
 8. Click `Send`.
 
-
-Submittion Secret Code
-```
-RASPBERRY_PI_2025
-```
