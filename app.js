@@ -5,9 +5,11 @@ const path = require('path');
 const { marked } = require('marked');
 
 const app = express();
-const PORT = process.env.PORT || 30221;
-
+const PORT = process.env.PORT || 30222;
 const upload = multer({ dest: 'uploads/' });
+
+const converted = []
+const count = 0;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Hello to this site check the documentation for more info <a href="/documentation">Documentation</a>');
 })
-
 
 app.get('/documentation', (req, res) => {
     const readmePath = path.join(__dirname, 'README.md');
@@ -163,7 +164,7 @@ app.post('/convert', upload.single('markdownFile'), (req, res) => {
         if (err) {
             return res.status(500).send('Error reading file.');
         }
-
+        
         const htmlContent = marked(data);
         const styledHtmlContent = `
             <!DOCTYPE html>
@@ -226,11 +227,21 @@ app.post('/convert', upload.single('markdownFile'), (req, res) => {
                 console.error('Error deleting file:', unlinkErr);
             }
         });
-
+        count = count + 1;
+        converted.push({count: count, date: new Date()});
         res.send(styledHtmlContent);
     });
 });
 
+app.get("/api/status", (req, res) => {
+    res.json({ status: "Running ✅" });
+})
+app.get("/api/converted", (req, res) => {
+    res.json({ converted });
+})
+app.get("/api/count", (req, res) => {
+    res.json({ Count: count });
+})
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
