@@ -3,7 +3,16 @@
 This is an API that converts a markdown file into HTML.
 
 ## Usage
+This is the list of Api requests that can be done on this API.
 
+1. `GET`: `/api/status`
+It returns the status of the *API*.
+2. `GET`:`/api/count`
+It returns the count of api requests made.
+3. `GET`: `/api/converted`
+It returns an array of objects each one has count and date of conversion. 
+4. `POST`:`/convert`
+It is the route which a user can send a markdown file into and gets the html in markdown style. 
 ### Prerequisites
 
 - Node.js installed on your machine
@@ -13,7 +22,7 @@ This is an API that converts a markdown file into HTML.
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/MarkdownToHtmlConverter.git
+    git clone https://github.com/MohamedAlDeep/MarkdownToHtmlConverter.git
     cd MarkdownToHtmlConverter
     ```
 
